@@ -57,7 +57,9 @@ function M.get_options(config, ngx)
     recovery_page_path = config.recovery_page_path,
     filters = parseFilters(config.filters),
     logout_path = config.logout_path,
-    redirect_after_logout_uri = config.redirect_after_logout_uri,
+    redirect_after_logout_uri = config.redirect_after_logout_uri ~= '' and config.redirect_after_logout_uri or nil,
+    post_logout_redirect_uri = config.post_logout_redirect_uri,
+    redirect_after_logout_with_id_token_hint = config.redirect_after_logout_with_id_token_hint,
   }
 end
 
